@@ -8,13 +8,14 @@
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/nouislider.css" rel="stylesheet">
     <script src="js/resize.js"></script>
 </head>
 
 
 <body>
   <div class="d-flex align-items-center justify-content-between pe-3 ps-3 header">
-    <h2 class ="logo-text"><b>Momo <span class="d-none d-md-inline-block">Kitchen</span></b></h2>
+    <h2 class ="logo-text __no-select"><b>Momo <span class="d-none d-md-inline-block">Kitchen</span></b></h2>
     <div class="d-flex p-2 m-3 position-relative">
       <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart"  class="cart-head">
         <svg xmlns="http://www.w3.org/2000/svg" height="2em"  viewBox="0 0 576 512">
@@ -23,7 +24,7 @@
           16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/>
         </svg>
       </a> 
-      <span class="cart-label position-absolute top-0 start-100 bg-black text-white translate-middle-x rounded-2">0</span>
+      <span class="cart-label position-absolute top-0 start-100 bg-black text-white translate-middle-x rounded-2 __no-select">0</span>
     </div>
   </div>
     <div class="hero d-flex align-items-center">
@@ -35,7 +36,7 @@
     <div class="container-fluid my-4">
       <div class="row col-reverser">
         <div class="col-md-6 d-flex flex-column text-center justify-content-center p-3">
-          <h1 class="homeH1">Where the <br>flavour<br>
+          <h1 class="homeH1 __no-select">Where the <br>flavour<br>
             <fit-text><strong><span>INEBRIATES</span></strong></fit-text>
             <i>YOU</i></h1>
         </div>
@@ -53,14 +54,13 @@
     <div class="offcanvas-body justify-content-between">
       <ul class="navbar-nav justify-content-end pe-3 list-group list-group-flush cart-items">
         <li class="nav-item"> 
-            <h1 class="pe-3 mb-3">Cart</h1>
+            <h1 class="pe-3 mb-3 __no-select">Cart</h1>
         </li>
       </ul>
-      <div class="cart-total">Total: <span>&#8358;<span class="total-price-span">0</span></span></div>
+      <div class="cart-total __no-select">Total: <span>&#8358;<span class="total-price-span">0</span></span></div>
       <div class="cart-btn text-center mt-5 mt-lg-0">
-        <a href="#"  class="btn btn-primary mt-3" onclick="openSuccess();">
+        <a href="#"  class="btn btn-primary mt-3" onclick="">
           <span>Check out</span>
-          <!-- data-bs-toggle="modal" data-bs-target="#successPage" -->
         </a>
       </div>
     </div>
@@ -70,7 +70,7 @@
 <div class="modal fade" id="successPage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body text-center">
+      <div class="modal-body text-center __no-select">
         <span class="font-icon-size"><i class="fa-solid fa-check-circle"></i></span>
         <p>Thanks for your patronage</p>
         <p>Your delivery is on the way!</p>
@@ -91,44 +91,45 @@
                 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 
                 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/>
               </svg></span>
-              <span class="cart-label position-absolute top-0 start-100 bg-black text-white translate-middle rounded-2">0</span>
+              <span class="cart-label position-absolute top-0 start-100 bg-black text-white translate-middle rounded-2 __no-select">0</span>
             </a>
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span><i class="fa-solid fa-sliders"></i></span> Filter
           </button>
           <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
+            <div class="offcanvas-header __no-select">
               <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><b>Filter</b></h5>
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body justify-content-between">
+            <div class="offcanvas-body justify-content-between __no-select">
               <ul class="navbar-nav justify-content-end pe-3 list-group list-group-flush">
                 <li class="nav-item"> 
                     <h1 class="pe-3">Categories</h1>
                 </li>
                 <li class="nav-item d-lg-none">
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex mt-3 mb-3 matches-container" role="search">
+                        <input class="form-control" type="search" placeholder="Search" onchange="doSearch(this.value)" oninput="doSearch(this.value)" aria-label="Search">
+                        <p class="search-matches matches-inside unsee"></p>
                     </form>
                 </li>
-                <li class="nav-item list-group-item list-group-item-action">
-                  <a class="nav-link" aria-current="page" href="#">All</a>
+                <li class="nav-item active list-group-item list-group-item-action">
+                  <a class="nav-link" aria-current="page" href="javascript:void(0);" onclick="doCategory(0)">All</a>
                 </li>
                 <li class="nav-item list-group-item list-group-item-action">
-                  <a class="nav-link" href="#">Nigerian<span class="d-lg-none"> Dishes</span></a>
+                  <a class="nav-link" href="javascript:void(0);" onclick="doCategory(1)">Nigerian<span class="d-lg-none"> Dishes</span></a>
                 </li>
                 <li class="nav-item list-group-item list-group-item-action">
-                    <a class="nav-link" href="#">Italian<span class="d-lg-none"> Dishes</span></a>
+                    <a class="nav-link" href="javascript:void(0);" onclick="doCategory(2)">Italian<span class="d-lg-none"> Dishes</span></a>
                 </li>
                 <li class="nav-item list-group-item list-group-item-action">
-                    <a class="nav-link" href="#">Chinese<span class="d-lg-none"> Dishes</span></a>
+                    <a class="nav-link" href="javascript:void(0);" onclick="doCategory(3)">Chinese<span class="d-lg-none"> Dishes</span></a>
                 </li>
                 <li class="nav-item list-group-item list-group-item-action">
-                    <a class="nav-link" href="#">American<span class="d-lg-none"> Dishes</span></a>
+                    <a class="nav-link" href="javascript:void(0);" onclick="doCategory(4)">American<span class="d-lg-none"> Dishes</span></a>
                 </li>
                 <li class="nav-item list-group-item list-group-item-action">
-                    <a class="nav-link" href="#">Canadian<span class="d-lg-none"> Dishes</span></a>
+                    <a class="nav-link" href="javascript:void(0);" onclick="doCategory(5)">Canadian<span class="d-lg-none"> Dishes</span></a>
                 </li>
               </ul>
               <div class="cart-btn text-center mt-5 mt-lg-0">
@@ -145,56 +146,40 @@
           </div>
         </div>
     </nav>
+    <div class="container-fluid mb-4">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <div id="slider"></div>
+          <div class="__slider-sort __no-select">Sort By Price</div>
+        </div>
+      </div>
+    </div>
     <div class="container-fluid d-none d-lg-block mb-4">
         <div class="row justify-content-center">
             <div class="col-6">
                 <form class="d-flex" role="search">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control" type="search" placeholder="Search for food" onchange="doSearch(this.value)" oninput="doSearch(this.value)" aria-label="Search">
+                    <p class="search-matches unsee"></p>
                 </form>
             </div>
         </div>
+        
     </div>
       <div class="container-fluid">
         <div class="row">
-            <div class="container">
+            <div class="container __no-select">
                 <div class="row food-items">
-                    <!-- <div class="col-sm-6 col-md-4 col-lg-3 p-3">
-                        <div class="card text-center shadow-sm">
-                            <img src="images/rice 2.jpg" class="card-img-top" alt="Cart Item">
-                            <div class="card-body">
-                              <h5 class="card-title text-center text-success">Sweet Fried Rice</h5>
-                              <div class="mb-2 d-flex justify-content-between align-items-center">
-                                <span class="span-category">Nigerian</span>
-                                <a href="#" class="btn btn-primary cart-add-btn">Add to Basket</a>
-                                <span class="rounded-5 btn-price">#500</span>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 p-3">
-                        <div class="card text-center shadow-sm">
-                            <img src="images/okro soup.jpg" class="card-img-top" alt="Cart Item">
-                            <div class="card-body">
-                              <h5 class="card-title text-center text-secondary">Okro Soup</h5>
-                              <div class="d-flex justify-content-between">
-                                <span>Nigerian</span>
-                                <a href="#" class="btn btn-primary cart-add-btn">Add to Basket</a>
-                                <span class="btn btn-primary">#600</span>
-                              </div>
-                            </div>
-                        </div>
-                    </div> -->
-                
+                    <p class="search-matches unsee"></p>
                 </div>
             </div>
         <!-- </main> -->
         </div>
       </div>
-      <footer class="d-flex justify-content-between text-white bg-black">          
+      <footer class="d-flex justify-content-between text-white bg-black __no-select">          
         <div class="container">
             <div class="row">
               <div class="col-9">
-                <h2 style="font-family: 'Marck Script', cursive; font-weight: 600; font-size: 3rem;">Momo Kitchen</h2>
+                <h2 class="logo-footer">Momo Kitchen</h2>
               </div> 
               <div class="col-3 social-media">
                 <a href="#"><span><i class="fab fa-facebook-f"></i></span></a>
@@ -212,7 +197,10 @@
 
 
     <!-- <script src="js/bootstrap.bundle.js"></script> -->
+    <script src="js/nouislider.js"></script>
+    <script src="js/wNumb.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/pick_data.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
