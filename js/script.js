@@ -32,6 +32,7 @@ function addItem(index){
                             <span class="input-group-text __no-select">${foodName}</span>
                             <span class="input-group-text cart-list-price __no-select">&#8358;<span>${foodPric}</span></span>
                             <input type="number" class="form-control" onchange="updateCart()" value="${foodQty}">
+                            <button class="btn btn-outline-secondary" data="${index}" onclick="deleteItem(${cartNum})">X</button>
                         </div>`;
     cartItems.appendChild(cartItem);
     foodItems.querySelectorAll('div.p-3')[index].querySelector('a').setAttribute('onclick', null);
@@ -53,8 +54,9 @@ function updateCart(){
     if(totalPrice == 0){
         checkoutBtn.setAttribute('onclick', null);
         checkoutBtn.style.opacity = 0.5;
+        document.querySelector('.total-price-span').innerHTML = totalPrice;
     }else{
-        checkoutBtn.setAttribute('onclick', 'openSuccess();');
+        checkoutBtn.setAttribute('onclick', 'openpayment();');
         checkoutBtn.style.opacity = 1;
         document.querySelector('.total-price-span').innerHTML = totalPrice;
         let cartCount = cartItems.querySelectorAll('li').length-1;
@@ -64,7 +66,12 @@ function updateCart(){
     }
 }
 
-function openSuccess(){
+function openpayment(){ 
+    let tprice = document.querySelector('.total-price-span').innerHTML;
+    document.querySelector(".price-tag").innerHTML= tprice;
+    document.querySelector(".label-2 span").innerHTML= tprice;
+    document.querySelector(".div-modal").classList.add("unsee");
+    document.querySelector(".div-form").classList.remove("unsee");
     cartItems.innerHTML = `<li class="nav-item"> 
         <h1 class="pe-3 mb-3">Cart</h1>
     </li>`;
@@ -74,6 +81,12 @@ function openSuccess(){
     let ogbolor = bootstrap.Offcanvas.getInstance(wotowoto);
     ogbolor.hide();
     modal.show();
+}
+
+function openSuccess(){
+    event.preventDefault();
+    document.querySelector(".div-modal").classList.remove("unsee");
+    document.querySelector(".div-form").classList.add("unsee");
 }
 
 function doCollate(){
@@ -161,6 +174,44 @@ slider.noUiSlider.on('update', function (values, handle) {
     sliderMax = values[1].replace('&#8358;', '');
     doCollate();
 });
+
+
+
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+
+
+
+function toggleCVV(){document.querySelector(".cvv-container").classList.toggle("unsee");}
+
+
+//first function 
+
+function deleteItem(cartNum){ 
+    let index = cartItems.querySelectorAll('li.nav-item')[cartNum].querySelector('button').getAttribute("data");
+    cartItems.querySelectorAll('li.nav-item')[cartNum].remove();
+    foodItems.querySelectorAll('div.p-3')[index].querySelector('a').setAttribute('onclick', `addItem(${index})`);
+    foodItems.querySelectorAll('div.p-3')[index].querySelector('a').innerHTML='Add to Basket';
+    foodItems.querySelectorAll('div.p-3')[index].querySelector('a').classList.remove('stactic');
+    cartReNumber();
+    updateCart();
+}
+
+//secound fuction
+
+function cartReNumber(){
+    let allCartItems = cartItems.querySelectorAll('li.nav-item');
+    allCartItems.forEach((cartItem, index) => {
+        if(index !== 0){
+            let serialNum = cartItem.querySelector('span.input-group-text:nth-child(1)'), removeBtn = cartItem.querySelector('button');
+            serialNum.innerHTML = index+".";
+            removeBtn.setAttribute('onclick', `deleteItem(${index})`);
+        }
+    });
+}
+
+
+
 
 //============================
 //YOUR TASKSKSSKSKSKSSKSK

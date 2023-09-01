@@ -239,6 +239,12 @@
     font-weight: bolder;
 }
 
+
+.mb-3{
+  color: black;
+}
+
+
 footer {
     background-color: #0d1010;
     color: snow;
@@ -256,6 +262,7 @@ footer a {
     justify-content: flex-end;
     padding-right: 5%;
 }
+
 
 .social-media span {
     margin-right: 15px;
@@ -389,6 +396,52 @@ footer a {
   background-color: rgb(103, 155, 123);
 }
 
+
 .unsee { 
   display: none; 
+}
+
+
+/*my styles starts here styles*/
+
+.header-text{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+.form-text{
+ font-size: 25px;
+ font-family: 'Ubuntu', sans-serif;
+}
+
+
+.label-1{
+  color: #46545C;
+  margin-bottom: 2px;
+  padding-top: 30px;
+  max-width: 100%;
+  font-weight: 700;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+}
+
+.label-2{
+  line-height: 34px;
+  font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.cvv-image{
+  width: 60px;
+}
+
+.help-icon{
+  color: grey;
+  cursor: pointer;
+}
+
+.help-icon:hover{
+  color: rgb(83, 80, 80);
 }

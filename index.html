@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momo Kitchen</title>
+<!--NEW META TAGS-->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Maya's Kitchen">
+    <!--  the name can be like Momo Kitchen,,, remember to make the first letters uppercase -->
+    <meta property="og:description" content="Delicious, freshly prepared meals delivered to your doorstep.">
+    <meta property="og:site_name" content="Maya's Kitchen">
+    <!-- these ones need your website to be live first,, so dont edit them yet, just add them like this first -->
+    <meta property="og:url" content="https://maya-kitchen.netlify.app">
+    <meta property="og:image" content="https://maya-kitchen.netlify.app/images/og-image.jpg">
+
+
+    <title> Maya's Kitchen</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -15,7 +26,7 @@
 
 <body>
   <div class="d-flex align-items-center justify-content-between pe-3 ps-3 header">
-    <h2 class ="logo-text __no-select"><b>Momo <span class="d-none d-md-inline-block">Kitchen</span></b></h2>
+    <h2 class ="logo-text __no-select"><b>Maya's <span class="d-none d-md-inline-block">Kitchen</span></b></h2>
     <div class="d-flex p-2 m-3 position-relative">
       <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart"  class="cart-head">
         <svg xmlns="http://www.w3.org/2000/svg" height="2em"  viewBox="0 0 576 512">
@@ -66,22 +77,105 @@
     </div>
   </div>
 
+
+
+
+
+
 <!-- Modal -->
 <div class="modal fade" id="successPage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body text-center __no-select">
-        <span class="font-icon-size"><i class="fa-solid fa-check-circle"></i></span>
-        <p>Thanks for your patronage</p>
-        <p>Your delivery is on the way!</p>
+
+
+      <!--div1 modal-->
+      <div class="unsee div-modal">
+        <div class="modal-body text-center __no-select">
+          <span class="font-icon-size"><i class="fa-solid fa-check-circle"></i></span>
+          <p>Thanks for your patronage</p>
+          <p>Your delivery is on the way!</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" onclick="window.location.reload()">Okay</button>
+        </div>
       </div>
-      <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-secondary" onclick="window.location.reload()">Okay</button>
+
+
+
+      <!--div2 form-->
+    <div class="unsee div-form">
+      <div class="modal-head bg-body-tertiary">
+        <div class="header-text mt-4">
+          <h1 class="text-center text-secondary">Pay Invoice</h1>
+        </div>
       </div>
+      <div class="modal-body"> 
+      <div class="container pb-3">
+      <form onsubmit="openSuccess()">
+        <div class="d-flex justify-content-center mt-4 gap-2">
+          <img src="images/head1 image.png">
+          <img src="images/head2 image.png">
+          <img src="images/head3 image.png">
+          <img src="images/head4 image.png">
+        </div>
+        <h6 class="label-1">Payment Amount</h6>
+        <h6 class="label-2">&#8358;<span>500</span>.00</h6> 
+        
+        <div class="mb-4">
+         <input type="text" class="form-control" required  placeholder="Name on Card">
+        </div>
+        
+        <div class="mb-4">
+         <input type="number" class="form-control" required  placeholder="Card Number">
+        </div>
+        
+        <div class="input-group mb-4">
+          <input type="text"  required  class="form-control" placeholder=" Expiry Date (MM/YY)">
+          <div class="position-relative">
+          <input type="type=number" aria-label="Last name" class="form-control" placeholder="Security code">
+            <span class="position-absolute top-50 start-100 translate-middle" onclick="toggleCVV()">
+              <i class=" help-icon fa fa-question-circle me-4" aria-hidden="true"></i> 
+            </span>
+           </div>
+         </div>
+
+<!--two image for security and expiring date-->
+            <div class="unsee cvv-container"> 
+            <div class="d-flex justify-content-end mt-4 gap-2 my-4">
+            <img src="images/security code 1.png" class="cvv-image">
+            <img src="images/security 2.png" class="cvv-image">
+            </div>
+            </div>
+         
+
+              <div class="mb-4">
+              <div class="position-relative">
+              <input type="text" class="form-control" required placeholder="ZIP/Postal code">
+              <span class="position-absolute top-50 start-100 translate-middle">
+              <a class="" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Enter the ZIP/Postal code for your credit card billing address.">
+                <i class=" help-icon fa fa-question-circle me-4" aria-hidden="true"></i> 
+              </a>    
+              </span>
+            </div>
+            </div>
+       
+         
+
+<!--button last-->
+         <div class="text-center">
+         <button class="btn btn-primary"><i class="fa-solid fa-lock">&ensp;</i>&#8358;<span class="price-tag">500</span>.00</button>
+         </div> 
+    </form>
+    </div>
+    </div>
+    </div>
     </div>
   </div>
 </div>
 
+
+
+<!--new place entirely-->
       <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top mt-4 mb-1">
         <div class="container-fluid row-reverser">
           <div class="navbar-brand d-lg-none cart-btn">
@@ -179,7 +273,7 @@
         <div class="container">
             <div class="row">
               <div class="col-9">
-                <h2 class="logo-footer">Momo Kitchen</h2>
+                <h2 class="logo-footer">Maya's Kitchen</h2>
               </div> 
               <div class="col-3 social-media">
                 <a href="#"><span><i class="fab fa-facebook-f"></i></span></a>
@@ -199,7 +293,7 @@
     <!-- <script src="js/bootstrap.bundle.js"></script> -->
     <script src="js/nouislider.js"></script>
     <script src="js/wNumb.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/pick_data.js"></script>
     <script src="js/script.js"></script>
 </body>
